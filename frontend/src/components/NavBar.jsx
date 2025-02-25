@@ -11,7 +11,7 @@ export default function NavBar() {
   return (
     <Box sx={navStyles.bar}>
       <AppBar position="static" sx={navStyles.bar}>
-        <Toolbar variant="dense">
+        <Toolbar variant="dense" sx={navStyles.iconLayout}>
           <IconButton
             edge="start"
             color="inherit"
