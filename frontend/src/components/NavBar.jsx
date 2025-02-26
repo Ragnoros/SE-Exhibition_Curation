@@ -23,6 +23,9 @@ export default function NavBar() {
           <Typography variant="h6" color="inherit" component="div">
             API 1 | API 2
           </Typography>
+          <Typography variant="h6" color="inherit" sx={navStyles.loginLayout}>
+            LOGIN
+          </Typography>
         </Toolbar>
       </AppBar>
     </Box>

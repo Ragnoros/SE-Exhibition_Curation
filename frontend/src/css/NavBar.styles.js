@@ -15,4 +15,11 @@ export const navStyles = {
     alignItems: "center",
     justifyContent: "left",
   },
+  loginLayout: {
+    fontSize: "verylarge",
+    display: "flex",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "right",
+  },
 };
