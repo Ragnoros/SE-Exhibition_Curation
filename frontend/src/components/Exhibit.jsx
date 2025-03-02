@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { fetchExhibits } from "../api/api";
+import ExhibitCard from "./ExhibitCard";
+import { exhibitStyles } from "../css/ExhibitCard.styles";
 
 const Exhibit = () => {
-  const [exhibit, setExhibit] = useState([]);
+  const [exhibits, setExhibits] = useState([]);
   useEffect(() => {
     fetchExhibits().then((data) => {
       console.log(data);
-      setExhibit(data);
+      setExhibits(data);
     });
-  });
-  return <Box></Box>;
+  }, [1]);
+
+  return (
+    <>
+      <Box sx={exhibitStyles.mainContent}>
+        <Box sx={exhibitStyles.grid}>
+          {exhibits.map((exhibit) => (
+            <ExhibitCard key={exhibit._currentLocation.id} exhibit={exhibit} />
+          ))}
+        </Box>
+      </Box>
+    </>
+  );
 };
 
 export default Exhibit;
