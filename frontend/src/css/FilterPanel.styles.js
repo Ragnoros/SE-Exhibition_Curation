@@ -7,7 +7,7 @@ export const filterStyles = {
     height: "94%",
     borderRight: "0.5px solid #A3C6C4",
     boxShadow: 4,
-    position: "fixed",
+    position: "absolute",
     pl: 3,
     pt: 2,
   },
