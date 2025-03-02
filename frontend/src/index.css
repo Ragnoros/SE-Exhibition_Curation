@@ -35,6 +35,14 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+/* index.css or App.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100vw; /* Ensure it doesn't expand beyond the viewport */
+}
 
 button {
   border-radius: 8px;

@@ -21,6 +21,7 @@ export const exhibitStyles = {
     width: "100%",
     minWidth: "250px",
     margin: "0 auto",
+    maxWidth: "100%",
     position: "relative",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
     display: "flex",
@@ -38,13 +39,13 @@ export const exhibitStyles = {
   },
   grid: {
     display: "grid",
-
     gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
     gap: "1.5rem",
     padding: "1rem",
     width: "100%",
     maxWidth: "calc(100vw - 330px)",
     boxSizing: "border-box",
+    overflowX: "hidden",
     "@media (max-width: 768px)": {
       gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
       padding: "0.5rem",
@@ -57,7 +58,7 @@ export const exhibitStyles = {
     overflow: "hidden",
     position: "relative",
     width: "100%",
-    marginLeft: "330px",
+    marginLeft: "315px",
     marginTop: "60px",
     "@media (max-width: 768px)": {
       marginLeft: 0,
