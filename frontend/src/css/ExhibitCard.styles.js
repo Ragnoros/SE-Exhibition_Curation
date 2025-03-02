@@ -1,4 +1,18 @@
 export const exhibitStyles = {
+  root: {
+    display: "flex",
+    width: "100%",
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #1a1a2e, #16213e)",
+    color: "white",
+    position: "relative",
+    paddingLeft: "300px",
+    paddingTop: "70px",
+    boxSizing: "border-box",
+    "@media (max-width: 768px)": {
+      paddingLeft: 0,
+    },
+  },
   card: {
     background: "rgb(247, 240, 195)",
     backdropFilter: "blur(12px)",
@@ -15,9 +29,8 @@ export const exhibitStyles = {
     boxShadow: "0 4px 12px rgba(0,0,0,0.4), 0 0 0 2px rgb(163, 198, 196)",
     "&:hover": {
       transform: "translateY(-6px)",
-      boxShadow:
-        "0 12px 30px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(78, 204, 163, 0.3)",
-      border: "2px solid rgba(78, 204, 163, 0.4)",
+      boxShadow: "0 12px 30px rgba(0, 0, 0, 0.6), 0 0 0 2px rgb(133, 92, 117)",
+      border: "2px solid rgb(133, 92, 117)",
       "& .MuiCardMedia-root": {
         transform: "scale(1.08)",
       },
@@ -25,6 +38,7 @@ export const exhibitStyles = {
   },
   grid: {
     display: "grid",
+    justifyContent: "center",
     gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
     gap: "1.5rem",
     padding: "1rem",
@@ -35,9 +49,10 @@ export const exhibitStyles = {
     },
   },
   mainContent: {
-    flex: 1,
-    padding: "2rem",
-    position: "relative",
+    flex: 2,
+    pl: "20rem",
+    top: 60,
+    position: "absolute",
     boxSizing: "border-box",
     width: "100%",
     "@media (max-width: 768px)": {
