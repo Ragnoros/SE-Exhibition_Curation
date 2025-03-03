@@ -20,7 +20,20 @@ export const navStyles = {
     fontSize: "verylarge",
     display: "flex",
     height: "100%",
+    right: "330px",
     alignItems: "center",
     justifyContent: "right",
+  },
+  searchLayout: {
+    width: 500,
+    maxWidth: "100%",
+    background: "#A3C6C4",
+    borderRadius: "16px",
+    "& .MuiOutlinedInput-notchedOutline": {
+      border: "none",
+    },
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      border: "none",
+    },
   },
 };
