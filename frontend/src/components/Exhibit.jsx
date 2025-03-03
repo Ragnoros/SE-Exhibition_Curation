@@ -18,7 +18,7 @@ const Exhibit = () => {
       <Box sx={exhibitStyles.mainContent}>
         <Box sx={exhibitStyles.grid}>
           {exhibits.map((exhibit) => (
-            <ExhibitCard key={exhibit._currentLocation.id} exhibit={exhibit} />
+            <ExhibitCard key={exhibit.systemNumber} exhibit={exhibit} />
           ))}
         </Box>
       </Box>

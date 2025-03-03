@@ -1,18 +1,57 @@
 export const exhibitStyles = {
-  //   root: {
-  //     display: "flex",
-  //     width: "100%",
-  //     minHeight: "100vh",
-  //     background: "linear-gradient(135deg, #1a1a2e, #16213e)",
-  //     color: "white",
-  //     position: "relative",
-  //     paddingLeft: "300px",
-  //     paddingTop: "70px",
-  //     boxSizing: "border-box",
-  //     "@media (max-width: 768px)": {
-  //       paddingLeft: 0,
-  //     },
-  //   },
+  mediaContainer: {
+    position: "relative",
+    height: "180px",
+    overflow: "hidden",
+    borderRadius: "8px 8px 0 0",
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      right: 0,
+      height: "60px",
+      background: "linear-gradient(to top, rgba(17, 25, 40, 1), transparent)",
+      pointerEvents: "none",
+    },
+  },
+  cardMedia: {
+    height: "100%",
+    width: "100%",
+    objectFit: "cover",
+    transition: "transform 0.5s ease",
+  },
+  cardContent: {
+    padding: "1.2rem",
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+    background:
+      "linear-gradient(180deg, rgb(247, 240, 195, 0.95) 0%, rgb(60, 88, 107, 0.98) 100%)",
+  },
+  contentWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.5rem",
+    flex: "1 1 auto",
+  },
+  title: {
+    fontSize: "1.1rem",
+    color: "#855C75",
+    fontWeight: 600,
+    marginBottom: "0.25rem",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+    minHeight: "2.2em",
+    lineHeight: "1.1em",
+    "&:hover": {
+      overflow: "visible",
+      WebkitLineClamp: "unset",
+    },
+  },
   card: {
     background: "rgb(247, 240, 195)",
     backdropFilter: "blur(12px)",
@@ -30,8 +69,8 @@ export const exhibitStyles = {
     boxShadow: "0 4px 12px rgba(0,0,0,0.4), 0 0 0 2px rgb(163, 198, 196)",
     "&:hover": {
       transform: "translateY(-6px)",
-      boxShadow: "0 12px 30px rgba(0, 0, 0, 0.6), 0 0 0 2px rgb(133, 92, 117)",
-      border: "2px solid rgb(133, 92, 117)",
+      boxShadow: "0 12px 30px rgba(0, 0, 0, 0.6), 0 0 0 2px rgb(60, 88, 107)",
+      border: "2px solid rgb(60, 88, 107)",
       "& .MuiCardMedia-root": {
         transform: "scale(1.08)",
       },
