@@ -3,7 +3,7 @@ export const exhibitStyles = {
     position: "relative",
     height: "180px",
     overflow: "hidden",
-    borderRadius: "8px 8px 0 0",
+    borderRadius: "3px 3px 0 0",
     "&::after": {
       content: '""',
       position: "absolute",
@@ -27,7 +27,7 @@ export const exhibitStyles = {
     flexDirection: "column",
     flexGrow: 1,
     background:
-      "linear-gradient(180deg, rgb(247, 240, 195, 0.95) 0%, rgb(60, 88, 107, 0.98) 100%)",
+      "linear-gradient(180deg, rgb(133, 92, 117, 0.95) 0%, rgb(133, 92, 117, 0.98) 100%)",
   },
   contentWrapper: {
     display: "flex",
@@ -35,9 +35,30 @@ export const exhibitStyles = {
     gap: "0.5rem",
     flex: "1 1 auto",
   },
+  chipContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.4rem",
+    marginTop: "auto",
+    paddingTop: "0.5rem",
+  },
+  chip: {
+    height: "20px",
+    background: "rgba(247, 240, 195, 0.1)",
+    color: "#F7F0C3",
+    border: "1px solid rgba(247, 240, 195, 0.3)",
+    transition: "background 0.3s ease",
+    "&:hover": {
+      background: "rgba(247, 240, 195, 0.2)",
+    },
+    "& .MuiChip-label": {
+      padding: "0 6px",
+      fontSize: "0.7rem",
+    },
+  },
   title: {
     fontSize: "1.1rem",
-    color: "#855C75",
+    color: "#F7F0C3",
     fontWeight: 600,
     marginBottom: "0.25rem",
     overflow: "hidden",
@@ -52,10 +73,47 @@ export const exhibitStyles = {
       WebkitLineClamp: "unset",
     },
   },
+  infoRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.4rem",
+    marginBottom: "0.5rem",
+  },
+  infoChip: {
+    height: "20px",
+    background: "rgba(255, 255, 255, 0.1)",
+    color: "rgba(255, 255, 255, 0.9)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+    "& .MuiChip-label": {
+      padding: "0 6px",
+      fontSize: "0.7rem",
+    },
+    "& .MuiSvgIcon-root": {
+      fontSize: "14px",
+      color: "rgba(255, 255, 255, 0.9)",
+    },
+  },
+  wishlistButton: {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    width: "40px",
+    height: "40px",
+    background: "rgba(0, 0, 0, 0.6)",
+    backdropFilter: "blur(4px)",
+    border: "none",
+    borderRadius: "12px",
+    zIndex: 2,
+    transition: "background 0.3s ease, box-shadow 0.3s ease",
+    "&:hover": {
+      background: "rgba(233, 69, 96, 0.3)",
+      boxShadow: "0 5px 15px rgba(233, 69, 96, 0.3)",
+    },
+  },
   card: {
     background: "rgb(247, 240, 195)",
     backdropFilter: "blur(12px)",
-    borderRadius: "8px",
+    borderRadius: "5px",
     height: "400px",
     width: "100%",
     minWidth: "250px",
@@ -65,7 +123,7 @@ export const exhibitStyles = {
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
     display: "flex",
     flexDirection: "column",
-    border: "2px solid rgb(163, 198, 196)",
+    border: "2px solid rgb(247, 240, 195)",
     boxShadow: "0 4px 12px rgba(0,0,0,0.4), 0 0 0 2px rgb(163, 198, 196)",
     "&:hover": {
       transform: "translateY(-6px)",
@@ -94,7 +152,7 @@ export const exhibitStyles = {
   mainContent: {
     flexGrow: 1,
     maxWidth: "calc(100vw - 330px)",
-    overflow: "hidden",
+    overflow: "auto",
     position: "relative",
     width: "100%",
     marginLeft: "315px",

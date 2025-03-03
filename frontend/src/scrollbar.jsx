@@ -7,11 +7,11 @@ export const globalStyles = (
         width: "10px",
       },
       "::-webkit-scrollbar-track": {
-        background: "rgba(17, 25, 40, 0.95)",
+        background: "rgb(163, 198, 196)",
       },
       "::-webkit-scrollbar-thumb": {
         background: "#3C586B",
-        borderRadius: "5px",
+        borderRadius: "0px",
       },
       "::-webkit-scrollbar-thumb:hover": {
         background: "#3C586B",

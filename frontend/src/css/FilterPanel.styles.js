@@ -1,15 +1,16 @@
 export const filterStyles = {
   panel: {
-    overflow: "hidden",
+    overflowY: "auto",
     width: "15vw",
     background: "rgb(60, 88, 107)",
     top: 60,
     height: "94%",
     borderRight: "0.5px solid #A3C6C4",
     boxShadow: 4,
-    position: "absolute",
+    position: "fixed",
     pl: 3,
     pt: 2,
+    zIndex: 1000,
   },
   form: {
     width: 230,
