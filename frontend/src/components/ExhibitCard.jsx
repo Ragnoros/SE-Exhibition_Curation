@@ -37,9 +37,7 @@ function ExhibitCard({ exhibit }) {
           {exhibit._primaryDate && (
             <Chip
               size="small"
-              label={`Released: ${new Date(
-                exhibit._primaryDate
-              ).getFullYear()}`}
+              label={`Created: ${new Date(exhibit._primaryDate).getFullYear()}`}
               sx={exhibitStyles.infoChip}
             />
           )}
