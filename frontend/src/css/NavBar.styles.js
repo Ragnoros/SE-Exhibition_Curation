@@ -16,6 +16,7 @@ export const navStyles = {
     alignItems: "center",
     justifyContent: "left",
   },
+
   loginLayout: {
     fontSize: "verylarge",
     display: "flex",
@@ -36,4 +37,7 @@ export const navStyles = {
       border: "none",
     },
   },
+  // searchButton: {
+  //   borderRadius: "16px",
+  // },
 };
