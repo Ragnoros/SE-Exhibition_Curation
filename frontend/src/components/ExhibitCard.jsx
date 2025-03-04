@@ -10,8 +10,8 @@ import {
   IconButton,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
+import noImage from "../assets/No_Image_Available.jpg";
 
 function ExhibitCard({ exhibit }) {
   return (
@@ -21,7 +21,7 @@ function ExhibitCard({ exhibit }) {
         <CardMedia
           component="img"
           sx={exhibitStyles.cardMedia}
-          image={exhibit._images?._primary_thumbnail}
+          image={exhibit._images?._primary_thumbnail || noImage}
           title={exhibit.objectType}
         />
       </Box>
