@@ -4,14 +4,14 @@ import { fetchExhibits } from "../api/api";
 import ExhibitCard from "./ExhibitCard";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
 
-const Exhibit = () => {
+const Exhibit = ({ searchValue }) => {
   const [exhibits, setExhibits] = useState([]);
   useEffect(() => {
-    fetchExhibits().then((data) => {
+    fetchExhibits(searchValue).then((data) => {
       console.log(data);
       setExhibits(data);
     });
-  }, [1]);
+  }, [searchValue]);
 
   return (
     <>

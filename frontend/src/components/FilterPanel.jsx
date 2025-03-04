@@ -26,7 +26,16 @@ function FilterPanel() {
           input={<OutlinedInput label="Name" />}
         ></Select>
       </FormControl>
-      <Button variant="contained" sx={{ mt: 1, bottom: 0 }}>
+      <Button
+        variant="contained"
+        sx={{
+          mt: 1,
+          bottom: 0,
+          backgroundColor: "#D68D85",
+          color: "#F7F0C3",
+          borderRadius: "16px",
+        }}
+      >
         Apply
       </Button>
     </Box>

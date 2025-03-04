@@ -12,14 +12,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { navStyles } from "../css/NavBar.styles";
 import { fetchExhibits } from "../api/api";
 
-export default function NavBar() {
-  const [searchValue, setSearchValue] = useState("");
+export default function NavBar({ setSearchValue }) {
+  const [search, captureSearch] = useState("");
 
-  const handleSearch = () => {
-    try {
-      fetchExhibits(searchValue);
-    } catch (error) {}
-  };
+  function handleSearch() {
+    setSearchValue(search);
+    captureSearch("");
+  }
 
   return (
     <Box sx={navStyles.bar}>
@@ -54,8 +53,8 @@ export default function NavBar() {
               id="fullWidth"
               size="small"
               sx={navStyles.searchLayout}
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              value={search}
+              onChange={(e) => captureSearch(e.target.value)}
             />
             <Button
               variant="contained"

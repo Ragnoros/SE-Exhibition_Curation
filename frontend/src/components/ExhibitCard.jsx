@@ -21,7 +21,7 @@ function ExhibitCard({ exhibit }) {
         <CardMedia
           component="img"
           sx={exhibitStyles.cardMedia}
-          image={exhibit._images._primary_thumbnail}
+          image={exhibit._images?._primary_thumbnail}
           title={exhibit.objectType}
         />
       </Box>
