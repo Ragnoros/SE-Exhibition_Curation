@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { navStyles } from "../css/NavBar.styles";
+import { Link } from "react-router-dom";
 import { fetchExhibits } from "../api/api";
 
 export default function NavBar({ setSearchValue }) {
@@ -43,7 +44,10 @@ export default function NavBar({ setSearchValue }) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
-              API 1 | API 2
+              <Link to="/api1" className="nav-link" style={{ color: "white" }}>
+                API 1
+              </Link>
+              | API 2
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -73,7 +77,13 @@ export default function NavBar({ setSearchValue }) {
           {/* Right Section (Login) */}
           <Box>
             <Typography variant="h6" color="inherit">
-              LOGIN
+              <Link
+                to="/savedexhibits"
+                style={{ color: "white" }}
+                className="nav-link"
+              >
+                Saved Exhibits
+              </Link>
             </Typography>
           </Box>
         </Toolbar>
