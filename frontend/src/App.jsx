@@ -9,7 +9,7 @@ import SavedExhibits from "./components/SavedExhibits.jsx";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  const [savedExhibts, setSavedExhibits] = useState([]);
+  const [savedExhibits, setSavedExhibits] = useState([]);
   return (
     <>
       {globalStyles}
@@ -19,9 +19,17 @@ function App() {
       <Routes>
         <Route
           path="/savedexhibits"
-          element={<SavedExhibits savedExhibts={savedExhibts} />}
+          element={<SavedExhibits savedExhibits={savedExhibits} />}
         />
-        <Route path="/api1" element={<Exhibit searchValue={searchValue} />} />
+        <Route
+          path="/api1"
+          element={
+            <Exhibit
+              searchValue={searchValue}
+              setSavedExhibits={setSavedExhibits}
+            />
+          }
+        />
       </Routes>
     </>
   );

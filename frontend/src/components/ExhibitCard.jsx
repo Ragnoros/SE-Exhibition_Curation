@@ -13,7 +13,20 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
 import noImage from "../assets/No_Image_Available.jpg";
 
-function ExhibitCard({ exhibit }) {
+function ExhibitCard({ exhibit, setSavedExhibits }) {
+  function handleSave(exhibit) {
+    setSavedExhibits((prevState) => {
+      const isExhibitSaved = prevState.some(
+        (savedExhibit) => savedExhibit.systemNumber === exhibit.systemNumber
+      );
+      if (isExhibitSaved) {
+        return prevState;
+      } else {
+        return [...prevState, exhibit];
+      }
+    });
+  }
+
   return (
     <Card sx={exhibitStyles.card}>
       {" "}
@@ -47,7 +60,10 @@ function ExhibitCard({ exhibit }) {
             sx={exhibitStyles.infoChip}
           />
         </Box>
-        <IconButton sx={exhibitStyles.wishlistButton}>
+        <IconButton
+          sx={exhibitStyles.wishlistButton}
+          onClick={() => handleSave(exhibit)}
+        >
           <FavoriteIcon sx={{ color: "#e94560" }} />
         </IconButton>
         <Box sx={exhibitStyles.chipContainer}>

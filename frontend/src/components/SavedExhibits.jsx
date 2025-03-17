@@ -1,9 +1,10 @@
 import React from "react";
 
-const SavedExhibits = () => {
+const SavedExhibits = ({ savedExhibits }) => {
   return (
     <div>
       temphhohihoigouyguifiuyfiyfyifiyfiyfvjhvkufiufguguyuogougouguobjhbbklbliyuluigougyufufuifiuh
+      {console.log(savedExhibits)}
     </div>
   );
 };

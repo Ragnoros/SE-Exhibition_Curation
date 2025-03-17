@@ -4,11 +4,10 @@ import { fetchExhibits } from "../api/api";
 import ExhibitCard from "./ExhibitCard";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
 
-const Exhibit = ({ searchValue }) => {
+const Exhibit = ({ searchValue, setSavedExhibits }) => {
   const [exhibits, setExhibits] = useState([]);
   useEffect(() => {
     fetchExhibits(searchValue).then((data) => {
-      console.log(data);
       setExhibits(data);
     });
   }, [searchValue]);
@@ -18,7 +17,11 @@ const Exhibit = ({ searchValue }) => {
       <Box sx={exhibitStyles.mainContent}>
         <Box sx={exhibitStyles.grid}>
           {exhibits.map((exhibit) => (
-            <ExhibitCard key={exhibit.systemNumber} exhibit={exhibit} />
+            <ExhibitCard
+              key={exhibit.systemNumber}
+              exhibit={exhibit}
+              setSavedExhibits={setSavedExhibits}
+            />
           ))}
         </Box>
       </Box>
