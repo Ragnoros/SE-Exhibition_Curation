@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogActions,
+  Pagination,
 } from "@mui/material";
 import { fetchExhibits, fetchExhibitDetails } from "../api/api";
 import { useNavigate, useParams } from "react-router-dom";
@@ -63,6 +64,14 @@ const Exhibit = ({ searchValue, setSavedExhibits }) => {
             />
           ))}
         </Box>
+        <Pagination
+        // count={totalPages}
+        // page={currentPage}
+        // onChange={handlePageChange}
+        // color="primary"
+        // showFirstButton
+        // showLastButton
+        />
       </Box>
 
       <Dialog
