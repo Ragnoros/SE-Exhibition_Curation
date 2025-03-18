@@ -13,7 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
 import noImage from "../assets/No_Image_Available.jpg";
 
-function ExhibitCard({ exhibit, setSavedExhibits }) {
+function ExhibitCard({ exhibit, setSavedExhibits, onClick }) {
   function handleSave(exhibit) {
     setSavedExhibits((prevState) => {
       const isExhibitSaved = prevState.some(
@@ -28,21 +28,21 @@ function ExhibitCard({ exhibit, setSavedExhibits }) {
   }
 
   return (
-    <Card sx={exhibitStyles.card}>
+    <Card sx={exhibitStyles.card} onClick={onClick}>
       {" "}
       <Box sx={exhibitStyles.mediaContainer}>
         <CardMedia
           component="img"
           sx={exhibitStyles.cardMedia}
           image={exhibit._images?._primary_thumbnail || noImage}
-          title={exhibit.objectType}
+          title={exhibit._primaryTitle}
         />
       </Box>
       <CardContent sx={exhibitStyles.cardContent}>
         <Box sx={exhibitStyles.contentWrapper}>
           <Tooltip title={exhibit.objectType} placement="top">
             <Typography sx={exhibitStyles.title} variant="h6" component="h2">
-              {exhibit.objectType}
+              {exhibit._primaryTitle || "No Title Available"}
             </Typography>
           </Tooltip>
         </Box>

@@ -44,9 +44,13 @@ export default function NavBar({ setSearchValue }) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
-              <Link to="/api1" className="nav-link" style={{ color: "white" }}>
-                API 1
-              </Link>
+              <Link
+                to="/vamapi"
+                className="nav-link"
+                style={{ color: "white" }}
+              >
+                Victoria & Albert Museum
+              </Link>{" "}
               | API 2
             </Typography>
           </Box>

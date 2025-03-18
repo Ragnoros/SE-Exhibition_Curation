@@ -3,7 +3,7 @@ export const exhibitStyles = {
     position: "relative",
     height: "180px",
     overflow: "hidden",
-    borderRadius: "3px 3px 0 0",
+    borderRadius: "8px 8px 0 0",
     "&::after": {
       content: '""',
       position: "absolute",
@@ -113,7 +113,7 @@ export const exhibitStyles = {
   card: {
     background: "rgb(247, 240, 195)",
     backdropFilter: "blur(12px)",
-    borderRadius: "5px",
+    borderRadius: "12px",
     height: "400px",
     width: "100%",
     minWidth: "250px",
@@ -123,8 +123,8 @@ export const exhibitStyles = {
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
     display: "flex",
     flexDirection: "column",
-    border: "2px solid rgb(247, 240, 195)",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.4), 0 0 0 2px rgb(163, 198, 196)",
+    border: "2px solid rgb(60, 88, 107)",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.4), 0 0 0 2px rgb(60, 88, 107)",
     "&:hover": {
       transform: "translateY(-6px)",
       boxShadow: "0 12px 30px rgba(0, 0, 0, 0.6), 0 0 0 2px rgb(60, 88, 107)",

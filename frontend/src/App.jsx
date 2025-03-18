@@ -22,7 +22,7 @@ function App() {
           element={<SavedExhibits savedExhibits={savedExhibits} />}
         />
         <Route
-          path="/api1"
+          path="/vamapi/:id?"
           element={
             <Exhibit
               searchValue={searchValue}
