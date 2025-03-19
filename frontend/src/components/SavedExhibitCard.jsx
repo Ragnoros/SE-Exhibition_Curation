@@ -9,6 +9,7 @@ import {
   Chip,
 } from "@mui/material";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
+import noImage from "../assets/No_Image_Available.jpg";
 
 function SavedExhibitCard({ exhibit }) {
   return (

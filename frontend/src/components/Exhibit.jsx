@@ -14,16 +14,32 @@ import { useNavigate, useParams } from "react-router-dom";
 import ExhibitCard from "./ExhibitCard";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
 import { exhibitInfo } from "../css/ExhibitInfoDialog.styles";
+import { paginationBar } from "../css/PaginationBar.styles";
+
+const PAGE_SIZE = 10;
 
 const Exhibit = ({ searchValue, setSavedExhibits }) => {
   const [exhibits, setExhibits] = useState([]);
   const [selectedExhibit, setSelectedExhibit] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchExhibits(searchValue).then(setExhibits);
-  }, [searchValue]);
+    const getExhibits = async () => {
+      const { exhibits, totalRecords } = await fetchExhibits(
+        searchValue,
+        currentPage,
+        PAGE_SIZE
+      );
+      setExhibits(exhibits);
+      setTotalPages(Math.ceil(totalRecords / PAGE_SIZE));
+    };
+
+    getExhibits();
+  }, [searchValue, currentPage]);
 
   useEffect(() => {
     if (id) {
@@ -35,9 +51,9 @@ const Exhibit = ({ searchValue, setSavedExhibits }) => {
             console.error("No data found for ID:", id);
           }
         })
-        .catch((error) => {
-          console.error("Error fetching exhibit details:", error);
-        });
+        .catch((error) =>
+          console.error("Error fetching exhibit details:", error)
+        );
     }
   }, [id]);
 
@@ -49,6 +65,10 @@ const Exhibit = ({ searchValue, setSavedExhibits }) => {
   const handleClose = () => {
     setSelectedExhibit(null);
     navigate("/vamapi", { replace: true });
+  };
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
   };
 
   return (
@@ -64,14 +84,18 @@ const Exhibit = ({ searchValue, setSavedExhibits }) => {
             />
           ))}
         </Box>
-        <Pagination
-        // count={totalPages}
-        // page={currentPage}
-        // onChange={handlePageChange}
-        // color="primary"
-        // showFirstButton
-        // showLastButton
-        />
+
+        <Box sx={paginationBar.bar}>
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            showFirstButton
+            showLastButton
+            sx={paginationBar.navigaton}
+          />
+        </Box>
       </Box>
 
       <Dialog
@@ -96,11 +120,9 @@ const Exhibit = ({ searchValue, setSavedExhibits }) => {
                     {selectedExhibit?.physicalDescription &&
                       (selectedExhibit?.summaryDescription ||
                         selectedExhibit?.production) && <br />}
-
                     {selectedExhibit?.summaryDescription}
                     {selectedExhibit?.summaryDescription &&
                       selectedExhibit?.production && <br />}
-
                     {selectedExhibit?.production}
                   </>
                 ) : (
