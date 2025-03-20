@@ -51,7 +51,9 @@ export default function NavBar({ setSearchValue }) {
               >
                 Victoria & Albert Museum
               </Link>{" "}
-              | API 2
+              <Link to="smapi" style={{ color: "white" }}>
+                | The Science Museum
+              </Link>
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
