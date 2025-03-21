@@ -18,10 +18,10 @@ export const fetchExhibitDetails = async (id) => {
   console.log(data.record.titles[0].title);
   return data.record;
 };
-export const fetchScienceExhibits = async () => {
+export const fetchScienceExhibits = async (page = 1, size = 10) => {
   try {
     const response = await fetch(
-      "https://collection.sciencemuseumgroup.org.uk/search/museum/Science%20Museum",
+      `https://collection.sciencemuseumgroup.org.uk/search/museum/Science%20Museum?page[number]=${page}&page[size]=${size}`,
       {
         headers: {
           Accept: "application/json",
@@ -35,7 +35,12 @@ export const fetchScienceExhibits = async () => {
 
     const data = await response.json();
     console.log(data);
+    return {
+      items: data.data,
+      total: data.meta?.total_pages || 0, // Ensure we get the total count
+    };
   } catch (error) {
     console.error("Error fetching data:", error);
+    return { items: [], total: 0 };
   }
 };

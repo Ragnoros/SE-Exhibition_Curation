@@ -15,8 +15,14 @@ export const paginationBar = {
   },
   navigaton: {
     "& .MuiPaginationItem-root": { color: "#F7F0C3" }, // Default text color
-    "& .Mui-selected": { backgroundColor: "#D68D85", color: "#F7F0C3" }, // Selected page styling
-    "& .MuiPaginationItem-ellipsis": { color: "#888" }, // Ellipsis color
-    "& .MuiPaginationItem-icon": { color: "#F7F0C3" }, // Arrows color
-  },
+    "& .Mui-selected": {
+      background: "linear-gradient(180deg, #E89B94 0%, #D68D85 100%)",
+      color: "#F7F0C3, !important",
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
+      border: "2px solid #B85C5C",
+      transform: "translateY(-2px)",
+    },
+  }, // Selected page styling
+  "& .MuiPaginationItem-ellipsis": { color: "#888" }, // Ellipsis color
+  "& .MuiPaginationItem-icon": { color: "#F7F0C3" }, // Arrows color
 };

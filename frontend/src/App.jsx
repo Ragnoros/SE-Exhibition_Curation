@@ -22,7 +22,7 @@ function App() {
           path="/savedexhibits"
           element={<SavedExhibits savedExhibits={savedExhibits} />}
         />
-        <Route path="/smapi" element={<ScienceExhibit />} />
+        <Route path="/smapi/:id?" element={<ScienceExhibit />} />
         <Route
           path="/vamapi/:id?"
           element={
