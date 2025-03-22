@@ -62,7 +62,10 @@ function ExhibitCard({ exhibit, setSavedExhibits, onClick }) {
         </Box>
         <IconButton
           sx={exhibitStyles.wishlistButton}
-          onClick={() => handleSave(exhibit)}
+          onClick={(event) => {
+            event.stopPropagation();
+            handleSave(exhibit);
+          }}
         >
           <FavoriteIcon sx={{ color: "#e94560" }} />
         </IconButton>

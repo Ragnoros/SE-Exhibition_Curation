@@ -11,18 +11,36 @@ import ScienceExhibit from "./components/ScienceExhibit.jsx";
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [savedExhibits, setSavedExhibits] = useState([]);
+  const [filterOptions, setFilterOptions] = useState({});
+
+  // Handler function to update filter options
+  const handleFilterChange = (newFilters) => {
+    setFilterOptions(newFilters);
+  };
+
   return (
     <>
       {globalStyles}
       <NavBar setSearchValue={setSearchValue} />
-      <FilterPanel />
+
+      {/* Pass the function to FilterPanel */}
+      <FilterPanel onFilterChange={handleFilterChange} />
 
       <Routes>
         <Route
           path="/savedexhibits"
           element={<SavedExhibits savedExhibits={savedExhibits} />}
         />
-        <Route path="/smapi/:id?" element={<ScienceExhibit />} />
+        <Route
+          path="/smapi/:id?"
+          element={
+            <ScienceExhibit
+              searchValue={searchValue}
+              setSavedExhibits={setSavedExhibits}
+              filterOptions={filterOptions} // Pass filters to ScienceExhibit
+            />
+          }
+        />
         <Route
           path="/vamapi/:id?"
           element={

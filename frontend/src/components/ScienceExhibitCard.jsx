@@ -13,7 +13,20 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { exhibitStyles } from "../css/ExhibitCard.styles";
 import noImage from "../assets/No_Image_Available.jpg";
 
-function ScienceExhibitCard({ exhibit, onClick }) {
+function ScienceExhibitCard({ exhibit, onClick, setSavedExhibits }) {
+  function handleSave(exhibit) {
+    setSavedExhibits((prevState) => {
+      const isExhibitSaved = prevState.some(
+        (savedExhibit) => savedExhibit.id === exhibit.id
+      );
+      if (isExhibitSaved) {
+        return prevState;
+      } else {
+        return [...prevState, exhibit];
+      }
+    });
+  }
+
   const imageUrl =
     exhibit.attributes?.multimedia?.[0]?.["@processed"]?.large_thumbnail
       ?.location || noImage;
@@ -63,7 +76,10 @@ function ScienceExhibitCard({ exhibit, onClick }) {
         </Box>
         <IconButton
           sx={exhibitStyles.wishlistButton}
-          onClick={() => handleSave(exhibit)}
+          onClick={(event) => {
+            event.stopPropagation();
+            handleSave(exhibit);
+          }}
         >
           <FavoriteIcon sx={{ color: "#e94560" }} />
         </IconButton>

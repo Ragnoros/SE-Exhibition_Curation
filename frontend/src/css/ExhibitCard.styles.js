@@ -3,7 +3,7 @@ export const exhibitStyles = {
     position: "relative",
     height: "180px",
     overflow: "hidden",
-    borderRadius: "8px 8px 0 0",
+    borderRadius: "16px 16px 0 0",
     "&::after": {
       content: '""',
       position: "absolute",
@@ -113,7 +113,7 @@ export const exhibitStyles = {
   card: {
     background: "rgb(247, 240, 195)",
     backdropFilter: "blur(12px)",
-    borderRadius: "12px",
+    borderRadius: "20px",
     height: "400px",
     width: "100%",
     minWidth: "250px",
