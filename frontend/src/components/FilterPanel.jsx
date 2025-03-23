@@ -56,11 +56,13 @@ function FilterPanel({ onFilterChange }) {
         variant="contained"
         sx={{
           mt: 5,
-          ml: 2,
+          ml: 1,
+          top: "25px",
           backgroundColor: "#D68D85",
           color: "#F7F0C3",
           borderRadius: "16px",
-          width: "70%",
+          width: 230,
+          height: "5%",
         }}
         onClick={handleApplyFilters}
       >

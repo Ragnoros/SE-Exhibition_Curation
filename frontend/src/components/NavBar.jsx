@@ -44,15 +44,15 @@ export default function NavBar({ setSearchValue }) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" component="div">
+              <Link to="smapi" style={{ color: "white" }}>
+                The Science Museum
+              </Link>{" "}
               <Link
                 to="/vamapi"
                 className="nav-link"
                 style={{ color: "white" }}
               >
-                Victoria & Albert Museum
-              </Link>{" "}
-              <Link to="smapi" style={{ color: "white" }}>
-                | The Science Museum
+                | Victoria & Albert Museum
               </Link>
             </Typography>
           </Box>

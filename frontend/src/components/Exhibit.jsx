@@ -18,7 +18,7 @@ import { paginationBar } from "../css/PaginationBar.styles";
 
 const PAGE_SIZE = 10;
 
-const Exhibit = ({ searchValue, setSavedExhibits }) => {
+const Exhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
   const [exhibits, setExhibits] = useState([]);
   const [selectedExhibit, setSelectedExhibit] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,11 +29,13 @@ const Exhibit = ({ searchValue, setSavedExhibits }) => {
 
   useEffect(() => {
     const getExhibits = async () => {
+      const query = searchValue || "Beatles"; // Default to 'Beatles' if searchValue is empty
       const { exhibits, totalRecords } = await fetchExhibits(
-        searchValue,
+        query,
         currentPage,
         PAGE_SIZE
       );
+
       setExhibits(exhibits);
       setTotalPages(Math.ceil(totalRecords / PAGE_SIZE));
     };

@@ -33,6 +33,7 @@ export const fetchScienceExhibits = async (page = 1, size = 10, query = "") => {
     }
 
     const data = await response.json();
+    console.log(data);
     return {
       items: data.data,
       total: data.meta?.total_pages || 0,

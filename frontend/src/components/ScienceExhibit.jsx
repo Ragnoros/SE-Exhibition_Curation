@@ -20,8 +20,8 @@ const ScienceExhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const [fullExhibits, setFullExhibits] = useState([]); // Store all fetched exhibits
-  const [filteredExhibits, setFilteredExhibits] = useState([]); // Filtered and paginated
+  const [fullExhibits, setFullExhibits] = useState([]);
+  const [filteredExhibits, setFilteredExhibits] = useState([]);
   const [selectedExhibit, setSelectedExhibit] = useState(null);
 
   const currentPage = parseInt(searchParams.get("page")) || 1;
@@ -29,18 +29,15 @@ const ScienceExhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
   const pageSize = 10;
   const [totalPages, setTotalPages] = useState(1);
 
-  // ✅ Fetch ALL exhibits once
   useEffect(() => {
     fetchScienceExhibits(1, 100, searchValue).then((data) => {
       setFullExhibits(data.items || []);
     });
   }, [searchValue]);
 
-  // ✅ Filter & sort when filters change
   useEffect(() => {
     let exhibitsToFilter = [...fullExhibits];
 
-    // Apply Sorting
     if (filterOptions.sortType === "asc") {
       exhibitsToFilter.sort((a, b) =>
         a.attributes.summary.title.localeCompare(b.attributes.summary.title)
@@ -57,12 +54,11 @@ const ScienceExhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
       );
     }
 
-    // Apply Date Filter
     exhibitsToFilter = exhibitsToFilter.filter((exhibit) => {
       const dateValue = exhibit.attributes?.creation?.date?.[0]?.value;
-      const date = dateValue ? parseInt(dateValue, 10) : null; // 👈 Ensure it's a number
+      const date = dateValue ? parseInt(dateValue, 10) : null;
 
-      if (!date) return false; // Exclude exhibits without a date
+      if (!date) return false;
 
       if (filterOptions.dateFilter === "before-1900") {
         return date < 1900;
@@ -84,10 +80,13 @@ const ScienceExhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
   );
 
   useEffect(() => {
-    if (exhibitId && paginatedExhibits.length > 0) {
-      const foundExhibit = paginatedExhibits.find((e) => e.id === exhibitId);
-      setSelectedExhibit(foundExhibit || null);
+    if (!exhibitId) {
+      setSelectedExhibit(null);
+      return;
     }
+
+    const foundExhibit = paginatedExhibits.find((e) => e.id === exhibitId);
+    setSelectedExhibit(foundExhibit || null);
   }, [exhibitId, paginatedExhibits]);
 
   const handleOpen = (exhibit) => {
@@ -96,8 +95,11 @@ const ScienceExhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
   };
 
   const handleClose = () => {
-    setSelectedExhibit(null);
     setSearchParams({ page: currentPage });
+
+    setTimeout(() => {
+      setSelectedExhibit(null);
+    }, 0);
   };
 
   const handlePageChange = (event, value) => {

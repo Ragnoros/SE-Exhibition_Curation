@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 import FilterPanel from "./components/FilterPanel";
 import Exhibit from "./components/Exhibit";
 import { globalStyles } from "./scrollbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import SavedExhibits from "./components/SavedExhibits.jsx";
 import ScienceExhibit from "./components/ScienceExhibit.jsx";
 
@@ -13,7 +13,6 @@ function App() {
   const [savedExhibits, setSavedExhibits] = useState([]);
   const [filterOptions, setFilterOptions] = useState({});
 
-  // Handler function to update filter options
   const handleFilterChange = (newFilters) => {
     setFilterOptions(newFilters);
   };
@@ -23,12 +22,12 @@ function App() {
       {globalStyles}
       <NavBar setSearchValue={setSearchValue} />
 
-      {/* Pass the function to FilterPanel */}
       <FilterPanel onFilterChange={handleFilterChange} />
 
       <Routes>
+        <Route path="/" element={<Navigate to="/smapi" replace />} />
         <Route
-          path="/savedexhibits"
+          path="/savedexhibits/:id?"
           element={<SavedExhibits savedExhibits={savedExhibits} />}
         />
         <Route
@@ -37,7 +36,7 @@ function App() {
             <ScienceExhibit
               searchValue={searchValue}
               setSavedExhibits={setSavedExhibits}
-              filterOptions={filterOptions} // Pass filters to ScienceExhibit
+              filterOptions={filterOptions}
             />
           }
         />
@@ -47,6 +46,7 @@ function App() {
             <Exhibit
               searchValue={searchValue}
               setSavedExhibits={setSavedExhibits}
+              filterOptions={filterOptions}
             />
           }
         />

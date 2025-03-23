@@ -31,9 +31,9 @@ function SavedExhibitCard({ exhibit, onClick }) {
         <Box sx={exhibitStyles.contentWrapper}>
           <Tooltip title={exhibit.objectType || "Unknown Type"} placement="top">
             <Typography sx={exhibitStyles.title} variant="h6" component="h2">
-              {exhibit.objectType ||
+              {exhibit._primaryTitle ||
                 exhibit.attributes?.summary?.title ||
-                "No Type Available"}
+                "No Title Available"}
             </Typography>
           </Tooltip>
         </Box>
