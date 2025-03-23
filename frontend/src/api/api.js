@@ -8,7 +8,7 @@ export const fetchExhibits = async (searchValue, page = 1, pageSize = 10) => {
   console.log(data.records);
   return {
     exhibits: data.records,
-    totalRecords: data.info.record_count, // Total available records
+    totalRecords: data.info.record_count,
   };
 };
 export const fetchExhibitDetails = async (id) => {
