@@ -33,7 +33,6 @@ export default function NavBar({ setSearchValue }) {
             height: "60px",
           }}
         >
-          {/* Left Section (Menu + API Text) */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton
               edge="start"
@@ -80,7 +79,6 @@ export default function NavBar({ setSearchValue }) {
             </Button>
           </Box>
 
-          {/* Right Section (Login) */}
           <Box>
             <Typography variant="h6" color="inherit">
               <Link

@@ -29,7 +29,7 @@ const Exhibit = ({ searchValue, setSavedExhibits, filterOptions }) => {
 
   useEffect(() => {
     const getExhibits = async () => {
-      const query = searchValue || "Beatles"; // Default to 'Beatles' if searchValue is empty
+      const query = searchValue || "Beatles";
       const { exhibits, totalRecords } = await fetchExhibits(
         query,
         currentPage,
