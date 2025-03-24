@@ -39,7 +39,6 @@ const SavedExhibits = ({ savedExhibits }) => {
     );
 
     if (exhibit && exhibit.systemNumber) {
-      console.log("Fetching details for systemNumber:", exhibitId);
       fetchExhibitDetails(exhibitId)
         .then((data) => {
           if (data) {

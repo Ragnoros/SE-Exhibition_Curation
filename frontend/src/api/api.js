@@ -5,7 +5,6 @@ export const fetchExhibits = async (searchValue, page = 1, pageSize = 10) => {
     )}&page=${page}&page_size=${pageSize}`
   );
   const data = await response.json();
-  console.log(data.records);
   return {
     exhibits: data.records,
     totalRecords: data.info.record_count,
@@ -14,8 +13,6 @@ export const fetchExhibits = async (searchValue, page = 1, pageSize = 10) => {
 export const fetchExhibitDetails = async (id) => {
   const response = await fetch(`https://api.vam.ac.uk/v2/museumobject/${id}`);
   const data = await response.json();
-  console.log(data.record);
-  console.log(data.record.titles[0].title);
   return data.record;
 };
 export const fetchScienceExhibits = async (page = 1, size = 10, query = "") => {
@@ -33,7 +30,6 @@ export const fetchScienceExhibits = async (page = 1, size = 10, query = "") => {
     }
 
     const data = await response.json();
-    console.log(data);
     return {
       items: data.data,
       total: data.meta?.total_pages || 0,

@@ -155,7 +155,7 @@ export const exhibitStyles = {
     overflow: "auto",
     position: "relative",
     width: "100%",
-    marginLeft: "315px",
+    marginLeft: "320px",
     marginTop: "1px",
     "@media (max-width: 768px)": {
       marginLeft: 0,

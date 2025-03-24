@@ -38,6 +38,11 @@ function SavedExhibitCard({ exhibit, onClick }) {
           </Tooltip>
         </Box>
         <Box sx={exhibitStyles.infoRow}>
+          <Chip
+            size="small"
+            label={exhibit.id ? "Science Museum" : "Victoria & Albert Museum"}
+            sx={exhibitStyles.infoChip}
+          />
           {exhibit._primaryDate ? (
             <Chip
               size="small"
